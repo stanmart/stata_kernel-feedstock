@@ -24,7 +24,6 @@ requirements:
     - beautifulsoup4 >=4.6.3
     - ipykernel >=4.8.2
     - ipython >=6.5.0
-    - jupyter >=1.0.0
     - jupyter_client >=5.2.3
     - packaging >=17.1
     - pandas >=0.22.0
@@ -39,6 +38,7 @@ test:
   requires:
     - pip
   commands:
+    - pip check
     - export CONTINUOUS_INTEGRATION=1  # [unix]
     - set CONTINUOUS_INTEGRATION=1  # [win]
     - python -c "import stata_kernel"
