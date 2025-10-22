@@ -14,20 +14,22 @@ build:
   noarch: python
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
+
 requirements:
   host:
-    - python
+    - python {{ python_min }}
     - pip
     - poetry-core >=1.8.1
   run:
+    - python >={{ python_min }}
     - beautifulsoup4 >=4.6.3
     - pandas >=1.0.0
-    - numpy >= 1.22.0
+    - numpy >=1.22.0
     - pygments >=2.2,<3.0
     - pexpect >=4.6.0
     - packaging >=17.1
     - pillow >=5.2.0
-    - pywin32 >=223  # [win]
+    - pywin32-on-windows >=223  # [win]
     - fake-useragent >=2.0.0,<3.0.0
     - ipython >=7.34,<8.0
     - ipykernel >=4.8.2,<5.0
@@ -38,6 +40,7 @@ requirements:
 
 test:
   requires:
+    - python {{ python_min }}
     - pip
   commands:
     - pip check
